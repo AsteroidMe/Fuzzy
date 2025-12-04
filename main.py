@@ -145,7 +145,7 @@ if btn_hitung:
         
         st.write("**b. Nilai Preferensi (V):**")
         df_saw_res = pd.DataFrame(saw_final, columns=["Nilai SAW"])
-        st.dataframe(df_saw_res.style.format("{:.4f}").background_gradient(cmap="Blues"))
+        st.dataframe(df_saw_res.style.format("{:.4f}"))
 
     # === METODE TOPSIS ===
     with tab_topsis:
@@ -193,7 +193,7 @@ if btn_hitung:
             "D- (Jarak Negatif)": dist_neg,
             "Nilai TOPSIS (V)": topsis_score
         })
-        st.dataframe(df_topsis_res.style.format("{:.4f}").background_gradient(subset=["Nilai TOPSIS (V)"], cmap="Greens"))
+        st.dataframe(df_topsis_res.style.format("{:.4f}"))
 
     # === TAB HASIL AKHIR ===
     with tab_result:
@@ -214,7 +214,7 @@ if btn_hitung:
         st.dataframe(final_df.style.format({
             "SAW Score": "{:.4f}",
             "TOPSIS Score": "{:.4f}"
-        }).highlight_max(subset=["SAW Score", "TOPSIS Score"], color='lightgreen', axis=0))
+        }))
         
         # Analisis Pemenang
         best_saw = final_df.sort_values("SAW Rank").index[0]
